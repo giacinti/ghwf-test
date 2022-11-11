@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_COLOR: "1"  # Make tools pretty.
+
+
+jobs:
+  testing:
+    name: testing
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: sh -c pwd
